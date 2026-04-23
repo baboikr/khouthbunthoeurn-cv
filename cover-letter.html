@@ -116,13 +116,54 @@
       body { background: #fff; }
       .page { margin: 0; box-shadow: none; border-radius: 0; }
       .page-header { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .download-btn, .lang-switch-btn { display: none !important; }
     }
 
     @media (max-width: 700px) {
       .page { margin: 0; border-radius: 0; }
       .page-header, .content { padding-left: 28px; padding-right: 28px; }
     }
+
+    .download-btn, .lang-switch-btn {
+      position: fixed;
+      right: 28px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      font-family: inherit;
+      font-size: .9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .3s ease;
+      z-index: 999;
+      text-decoration: none;
+    }
+    .download-btn {
+      bottom: 28px;
+      background: linear-gradient(135deg, #2563eb, #06b6d4);
+      box-shadow: 0 8px 24px rgba(37,99,235,.35);
+    }
+    .download-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(37,99,235,.45);
+    }
+    .download-btn:active { transform: translateY(0); }
+    .lang-switch-btn {
+      bottom: 84px;
+      background: linear-gradient(135deg, #0f172a, #334155);
+      box-shadow: 0 8px 24px rgba(15,23,42,.35);
+    }
+    .lang-switch-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(15,23,42,.45);
+    }
+    .lang-switch-btn:active { transform: translateY(0); }
   </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -177,6 +218,14 @@
   </main>
 
 </div>
+
+<a class="lang-switch-btn" href="cover-letter-en.html">
+  <i class="fa-solid fa-globe"></i> English
+</a>
+
+<button class="download-btn" onclick="window.print()">
+  <i class="fa-solid fa-download"></i> PDF 다운로드
+</button>
 
 </body>
 </html>
