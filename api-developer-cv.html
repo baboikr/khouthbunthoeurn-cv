@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Resume - KHOUTH BUNTHOEURN | Web Publisher">
+  <title>Resume – KHOUTH BUNTHOEURN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #2563eb;
+      --primary-light: #3b82f6;
+      --primary-dark: #1d4ed8;
+      --accent: #06b6d4;
+      --dark: #0f172a;
+      --dark-soft: #1e293b;
+      --gray-900: #111827;
+      --gray-700: #374151;
+      --gray-600: #4b5563;
+      --gray-500: #6b7280;
+      --gray-400: #9ca3af;
+      --gray-300: #d1d5db;
+      --gray-200: #e5e7eb;
+      --gray-100: #f3f4f6;
+      --gray-50: #f9fafb;
+      --white: #ffffff;
+      --radius: 12px;
+      --radius-sm: 8px;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+      --shadow: 0 4px 6px -1px rgba(0,0,0,.07), 0 2px 4px -2px rgba(0,0,0,.05);
+      --shadow-lg: 0 10px 25px -3px rgba(0,0,0,.08), 0 4px 6px -4px rgba(0,0,0,.04);
+      --transition: .3s cubic-bezier(.4,0,.2,1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--gray-100);
+      color: var(--gray-700);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== PAGE WRAPPER ===== */
+    .page {
+      max-width: 900px;
+      margin: 40px auto;
+      background: var(--white);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px -12px rgba(0,0,0,.12);
+      animation: fadeUp .7s ease-out both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      position: relative;
+      background: linear-gradient(135deg, var(--dark) 0%, var(--dark-soft) 50%, #0f2847 100%);
+      padding: 40px 56px 32px;
+      color: var(--white);
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(37,99,235,.25) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: 30%;
+      width: 240px; height: 240px;
+      background: radial-gradient(circle, rgba(6,182,212,.15) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .avatar-wrapper {
+      flex-shrink: 0;
+      width: 130px; height: 130px;
+      border-radius: 50%;
+      padding: 4px;
+      background: linear-gradient(135deg, var(--primary-light), var(--accent));
+      animation: pulseRing 3s ease-in-out infinite;
+    }
+
+    @keyframes pulseRing {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(37,99,235,.3); }
+      50%      { box-shadow: 0 0 0 10px rgba(37,99,235,0); }
+    }
+
+    .avatar {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--dark);
+    }
+
+    .header-text h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -.5px;
+      margin-bottom: 4px;
+    }
+
+    .header-text .subtitle {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .header-summary {
+      font-size: .88rem;
+      font-weight: 300;
+      color: rgba(255,255,255,.7);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      max-width: 520px;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .88rem;
+      color: rgba(255,255,255,.8);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .contact-item:hover { color: var(--accent); }
+
+    .contact-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px; height: 30px;
+      background: rgba(255,255,255,.08);
+      border-radius: 8px;
+      font-size: .85rem;
+      flex-shrink: 0;
+    }
+
+    /* ===== BODY ===== */
+    .body {
+      padding: 48px 56px 56px;
+    }
+
+    /* ===== SECTION ===== */
+    .section {
+      margin-bottom: 42px;
+      animation: fadeIn .6s ease-out both;
+    }
+
+    .section:last-child { margin-bottom: 0; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--gray-200);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 60px; height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 2px;
+    }
+
+    .section-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px; height: 34px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: var(--white);
+      border-radius: 10px;
+      font-size: .9rem;
+      flex-shrink: 0;
+    }
+
+    /* ===== TIMELINE ===== */
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 6px; top: 8px; bottom: 8px;
+      width: 2px;
+      background: var(--gray-200);
+      border-radius: 2px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 28px;
+      padding: 20px 24px;
+      background: var(--gray-50);
+      border-radius: var(--radius);
+      border: 1px solid var(--gray-200);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+
+    .timeline-item:last-child { margin-bottom: 0; }
+
+    .timeline-item:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -25px; top: 26px;
+      width: 12px; height: 12px;
+      background: var(--white);
+      border: 3px solid var(--primary);
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .timeline-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gray-900);
+    }
+
+    .timeline-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 12px;
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--primary);
+      background: rgba(37,99,235,.08);
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .timeline-org {
+      font-size: .92rem;
+      font-weight: 500;
+      color: var(--gray-600);
+      margin-bottom: 10px;
+    }
+
+    .timeline-list {
+      list-style: none;
+    }
+
+    .timeline-list li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 6px;
+      font-size: .9rem;
+      color: var(--gray-600);
+      line-height: 1.65;
+    }
+
+    .timeline-list li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 9px;
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    /* ===== EDUCATION ===== */
+    .edu-card {
+      display: flex;
+      gap: 20px;
+      padding: 18px 24px;
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      margin-bottom: 14px;
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+
+    .edu-card:last-child { margin-bottom: 0; }
+
+    .edu-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+    }
+
+    .edu-icon {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px; height: 46px;
+      background: linear-gradient(135deg, rgba(37,99,235,.1), rgba(6,182,212,.1));
+      border-radius: 12px;
+      font-size: 1.2rem;
+    }
+
+    .edu-info { flex: 1; }
+
+    .edu-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gray-900);
+    }
+
+    .edu-degree {
+      font-size: .9rem;
+      color: var(--gray-600);
+    }
+
+    .edu-year {
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-top: 2px;
+    }
+
+    .edu-row {
+      display: flex;
+      gap: 14px;
+    }
+    .edu-row .edu-card {
+      flex: 1;
+      margin-bottom: 0;
+    }
+
+    /* ===== LANGUAGE ===== */
+    .lang-grid {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+
+    .lang-card {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 16px;
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+
+    .lang-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+    }
+
+    .lang-name {
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      white-space: nowrap;
+    }
+
+    .lang-level {
+      font-size: .75rem;
+      color: var(--primary);
+      font-weight: 600;
+      background: rgba(37,99,235,.08);
+      padding: 2px 10px;
+      border-radius: 12px;
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    .lang-bar-track {
+      width: 100%;
+      height: 6px;
+      background: var(--gray-200);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .lang-bar-fill {
+      height: 100%;
+      border-radius: 6px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transition: width 1.2s ease-out;
+    }
+
+    /* ===== TWO-COL ROW ===== */
+    .two-col-row {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .two-col-row > .section {
+      flex: 1;
+      margin-bottom: 0;
+    }
+
+    /* ===== EXTRAS ===== */
+    .extras-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .extra-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: var(--gray-50);
+      border: 1px solid var(--gray-200);
+      border-radius: 30px;
+      font-size: .88rem;
+      color: var(--gray-700);
+      transition: all var(--transition);
+    }
+
+    .extra-chip:hover {
+      border-color: var(--primary-light);
+      box-shadow: var(--shadow);
+      transform: translateY(-1px);
+    }
+
+    .extra-chip .chip-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: var(--white);
+      font-size: .7rem;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      font-size: .78rem;
+      color: var(--gray-400);
+      border-top: 1px solid var(--gray-100);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 700px) {
+      .page { margin: 0; border-radius: 0; }
+      .header { padding: 36px 20px 28px; }
+      .header-inner { flex-direction: column; text-align: center; }
+      .contact-row { justify-content: center; }
+      .body { padding: 28px 20px 32px; }
+      .header-text h1 { font-size: 1.7rem; }
+      .header-summary { max-width: 100%; }
+      .timeline { padding-left: 22px; }
+      .edu-row { flex-direction: column; }
+      .two-col-row { flex-direction: column; }
+      .lang-grid { flex-direction: column !important; }
+      .lang-card { width: 100%; }
+      .extras-list { flex-direction: column; }
+    }
+
+    /* ===== PRINT ===== */
+    @media print {
+      @page { margin: 0; size: A4; }
+      * { animation: none !important; transition: none !important; }
+      body { background: #fff; }
+      .page { margin: 0; box-shadow: none; border-radius: 0; }
+      .header {
+        print-color-adjust: exact; -webkit-print-color-adjust: exact;
+      }
+      #education { padding-top: 48px !important; }
+      .header::before, .header::after { display: none; }
+      .avatar-wrapper { animation: none; }
+      .footer { display: none; }
+      .download-btn { display: none !important; }
+      .timeline-item:hover,
+      .edu-card:hover,
+      .lang-card:hover,
+      .extra-chip:hover { transform: none; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+<style>
+  .download-btn, .lang-switch-btn {
+    position: fixed;
+    right: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-family: inherit;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .3s ease;
+    z-index: 999;
+    text-decoration: none;
+  }
+  .download-btn {
+    bottom: 28px;
+    background: linear-gradient(135deg, #2563eb, #06b6d4);
+    box-shadow: 0 8px 24px rgba(37,99,235,.35);
+  }
+  .download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(37,99,235,.45);
+  }
+  .download-btn:active { transform: translateY(0); }
+  .lang-switch-btn {
+    bottom: 84px;
+    background: linear-gradient(135deg, #0f172a, #334155);
+    box-shadow: 0 8px 24px rgba(15,23,42,.35);
+  }
+  .lang-switch-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(15,23,42,.45);
+  }
+  .lang-switch-btn:active { transform: translateY(0); }
+  @media print {
+    .lang-switch-btn { display: none !important; }
+  }
+</style>
+
+<div class="page">
+
+  <!-- ======= HEADER ======= -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="avatar-wrapper">
+        <img class="avatar" src="photo.jpg" alt="KHOUTH BUNTHOEURN profile photo">
+      </div>
+      <div class="header-text">
+        <h1>KHOUTH BUNTHOEURN</h1>
+        <p class="header-summary">6+ years in web development with HTML, CSS, and JavaScript. Bilingual (Korean–Khmer) collaborator eager to grow into API development.</p>
+        <div class="contact-row">
+          <a class="contact-item" href="tel:092201902">
+            <span class="contact-icon"><i class="fa-solid fa-phone"></i></span>
+            092-201-902
+          </a>
+          <a class="contact-item" href="mailto:bunthoeunkhot@gmail.com">
+            <span class="contact-icon"><i class="fa-solid fa-envelope"></i></span>
+            bunthoeunkhot@gmail.com
+          </a>
+          <span class="contact-item">
+            <span class="contact-icon"><i class="fa-solid fa-location-dot"></i></span>
+            Phnom Penh, Cambodia
+          </span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======= BODY ======= -->
+  <main class="body">
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <h2 class="section-title">
+        <span class="section-icon"><i class="fa-solid fa-briefcase"></i></span>
+        Work Experience
+      </h2>
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <span class="timeline-title">Web Publisher</span>
+            <span class="timeline-badge"><i class="fa-regular fa-calendar"></i> 2024 – Present</span>
+          </div>
+          <p class="timeline-org">KOSIGN Investment Co., Ltd., Cambodia (Korean Company)</p>
+          <ul class="timeline-list">
+            <li>Korean-language communication and translation with Korean team members</li>
+            <li>Web content management and cross-team coordination support</li>
+            <li>Web page development and maintenance using HTML, CSS, and JavaScript</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <span class="timeline-title">Quality Inspector (Worked in Korea)</span>
+            <span class="timeline-badge"><i class="fa-regular fa-calendar"></i> 2018 – 2021</span>
+          </div>
+          <p class="timeline-org">Sanghyun Metal Co., Ltd., South Korea</p>
+          <ul class="timeline-list">
+            <li>Business communication and translation with Korean managers</li>
+            <li>Inspection report writing and administrative document management</li>
+            <li>Metal product quality inspection and control</li>
+            <li>Understanding and adaptation to Korean workplace culture</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <span class="timeline-title">Web Publisher / Admin Support</span>
+            <span class="timeline-badge"><i class="fa-regular fa-calendar"></i> 2014 – 2017</span>
+          </div>
+          <p class="timeline-org">KOSIGN Investment Co., Ltd., Cambodia (Korean Company)</p>
+          <ul class="timeline-list">
+            <li>Korean translation and operational support in collaboration with Korean team</li>
+            <li>Administrative document preparation, web content management, and data organization</li>
+            <li>Web development using HTML, CSS, and JavaScript</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section" id="education">
+      <h2 class="section-title">
+        <span class="section-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+        Education
+      </h2>
+
+      <div class="edu-row">
+      <div class="edu-card">
+        <div class="edu-icon">🇰🇷</div>
+        <div class="edu-info">
+          <p class="edu-name">Pukyong National University</p>
+          <p class="edu-degree">Korean Language Training Program</p>
+          <p class="edu-year">2022 – 2024</p>
+        </div>
+      </div>
+
+      <div class="edu-card">
+        <div class="edu-icon">🇰🇭</div>
+        <div class="edu-info">
+          <p class="edu-name">SETEC Institute</p>
+          <p class="edu-degree">Bachelor's in Business Information Technology (BIT)</p>
+          <p class="edu-year">2012 – 2015</p>
+        </div>
+      </div>
+      </div>
+
+    </section>
+
+
+    <!-- LANGUAGES -->
+    <section class="section" id="languages">
+      <h2 class="section-title">
+        <span class="section-icon"><i class="fa-solid fa-language"></i></span>
+        Languages
+      </h2>
+      <div class="lang-grid">
+
+        <div class="lang-card">
+          <p class="lang-name">Korean</p>
+          <p class="lang-level">TOPIK Level 4</p>
+          <div class="lang-bar-track">
+            <div class="lang-bar-fill" style="width:75%"></div>
+          </div>
+        </div>
+
+        <div class="lang-card">
+          <p class="lang-name">English</p>
+          <p class="lang-level">Working Proficiency</p>
+          <div class="lang-bar-track">
+            <div class="lang-bar-fill" style="width:55%"></div>
+          </div>
+        </div>
+
+        <div class="lang-card">
+          <p class="lang-name">Khmer</p>
+          <p class="lang-level">Native</p>
+          <div class="lang-bar-track">
+            <div class="lang-bar-fill" style="width:100%"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EXTRAS -->
+    <section class="section" id="extras">
+      <h2 class="section-title">
+        <span class="section-icon"><i class="fa-solid fa-star"></i></span>
+        Additional
+      </h2>
+      <div class="extras-list">
+        <div class="extra-chip">
+          <span class="chip-icon"><i class="fa-solid fa-plane-departure"></i></span>
+          Work experience in South Korea
+        </div>
+        <div class="extra-chip">
+          <span class="chip-icon"><i class="fa-solid fa-shield-halved"></i></span>
+          Responsible and diligent work attitude
+        </div>
+        <div class="extra-chip">
+          <span class="chip-icon"><i class="fa-solid fa-handshake"></i></span>
+          Collaboration experience in diverse environments
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+</div>
+
+<a class="lang-switch-btn" href="index.html">
+  <i class="fa-solid fa-globe"></i> 한국어
+</a>
+
+<button class="download-btn" onclick="downloadPDF()">
+  <i class="fa-solid fa-download"></i> Download PDF
+</button>
+
+<script>
+  // Animate language bars on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.lang-bar-fill').forEach(bar => {
+          const w = bar.style.width;
+          bar.style.width = '0%';
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => { bar.style.width = w; });
+          });
+        });
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const langSection = document.getElementById('languages');
+  if (langSection) observer.observe(langSection);
+
+  // Staggered section fade-in
+  document.querySelectorAll('.section').forEach((sec, i) => {
+    sec.style.animationDelay = `${i * 0.12}s`;
+  });
+
+  // PDF download — uses browser print (perfect colors + one page)
+  function downloadPDF() {
+    window.print();
+  }
+</script>
+
+</body>
+</html>
