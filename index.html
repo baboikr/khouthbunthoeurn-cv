@@ -64,13 +64,25 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ===== HEADER ===== */
     .header {
       position: relative;
       background: linear-gradient(135deg, var(--dark) 0%, var(--dark-soft) 50%, #0f2847 100%);
       padding: 40px 56px 32px;
       color: var(--white);
       overflow: hidden;
+    }
+
+    .header-date {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: .75rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.07);
+      padding: 4px 10px;
+      border-radius: 20px;
+      z-index: 5;
     }
 
     .header::before {
@@ -601,6 +613,7 @@
       .lang-card:hover,
       .extra-chip:hover { transform: none; box-shadow: none; }
       .print-margin-top-300 { margin-top: 300px !important; }
+      .header-date { display: none !important; }
     }
   </style>
 </head>
@@ -653,6 +666,7 @@
 
   <!-- ======= HEADER ======= -->
   <header class="header">
+    <span class="header-date">최근 수정일: 2026.06.13</span>
     <div class="header-inner">
       <div class="avatar-wrapper">
         <img class="avatar" src="photo.jpg" alt="KHOUTH BUNTHOEURN 프로필 사진">
