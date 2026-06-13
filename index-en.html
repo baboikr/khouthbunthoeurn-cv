@@ -856,6 +856,22 @@
   function downloadPDF() {
     window.print();
   }
+
+  // Dynamic version date label
+  const dateEl = document.querySelector('.header-date');
+  if (dateEl) {
+    const lastMod = new Date(document.lastModified);
+    if (!isNaN(lastMod.getTime())) {
+      const yyyy = lastMod.getFullYear();
+      const mm = String(lastMod.getMonth() + 1).padStart(2, '0');
+      const dd = String(lastMod.getDate()).padStart(2, '0');
+      const hh = String(lastMod.getHours()).padStart(2, '0');
+      const min = String(lastMod.getMinutes()).padStart(2, '0');
+      const isKorean = dateEl.textContent.includes('최근');
+      const prefix = isKorean ? '최근 수정일: ' : 'Last Updated: ';
+      dateEl.textContent = `${prefix}${yyyy}.${mm}.${dd} ${hh}:${min}`;
+    }
+  }
 </script>
 
 </body>
